@@ -1,0 +1,141 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="SiteAccount.master.cs" Inherits="Account_SiteAccount" %>
+<%@ Register TagPrefix="recaptcha" Namespace="Recaptcha" Assembly="Recaptcha" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+    </asp:ContentPlaceHolder>
+
+    <table align="center" 
+        style="background-image: url('../../Images/imagedropdown.gif'); background-repeat: no-repeat" 
+        id="Register">
+
+
+<tr align="center">
+    <td align="center">
+    <asp:Panel ID="Panel1" runat="server" CssClass="Register">
+    <!--
+    <asp:Label ID="lblVerificationMessage" ForeColor="Red" runat="server" Font-Bold="True"></asp:Label>
+    -->
+    <asp:CreateUserWizard ID="RegisterUser" runat="server" EnableViewState="False" 
+        OnCreatedUser="RegisterUser_CreatedUser" CssClass="submitbutton">
+        <LayoutTemplate>
+            <asp:PlaceHolder ID="wizardStepPlaceholder" runat="server"></asp:PlaceHolder>
+            <asp:PlaceHolder ID="navigationPlaceholder" runat="server"></asp:PlaceHolder>
+        </LayoutTemplate>
+        <CreateUserButtonStyle CssClass="submitbutton" />
+        <WizardSteps>
+            <asp:CreateUserWizardStep ID="RegisterUserWizardStep" runat="server">
+                <ContentTemplate>
+                    <table>
+                        <tr style="font-weight: bold; color: #FFFFFF">
+                            <td align="center" colspan="2">
+                                Sign Up for Your New Account</td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName">User Name:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="UserName" runat="server" Width="260px"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" 
+                                    ControlToValidate="UserName" ErrorMessage="User Name is required." 
+                                    ForeColor="Red" ToolTip="User Name is required." ValidationGroup="RegisterUser">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password">Password:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="Password" runat="server" TextMode="Password" Width="260px"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" 
+                                    ControlToValidate="Password" ErrorMessage="Password is required." 
+                                    ForeColor="Red" ToolTip="Password is required." ValidationGroup="RegisterUser">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="ConfirmPasswordLabel" runat="server" 
+                                    AssociatedControlID="ConfirmPassword">Confirm Password:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="ConfirmPassword" runat="server" TextMode="Password" 
+                                    Width="260px"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="ConfirmPasswordRequired" runat="server" 
+                                    ControlToValidate="ConfirmPassword" 
+                                    ErrorMessage="Confirm Password is required." ForeColor="Red" 
+                                    ToolTip="Confirm Password is required." ValidationGroup="RegisterUser">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="EmailLabel" runat="server" AssociatedControlID="Email">E-mail:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="Email" runat="server" Width="260px"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="EmailRequired" runat="server" 
+                                    ControlToValidate="Email" ErrorMessage="E-mail is required." ForeColor="Red" 
+                                    ToolTip="E-mail is required." ValidationGroup="RegisterUser">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="QuestionLabel" runat="server" AssociatedControlID="Question">Security Question:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="Question" runat="server" Width="260px"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="QuestionRequired" runat="server" 
+                                    ControlToValidate="Question" ErrorMessage="Security question is required." 
+                                    ForeColor="Red" ToolTip="Security question is required." 
+                                    ValidationGroup="RegisterUser">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="right">
+                                <asp:Label ID="AnswerLabel" runat="server" AssociatedControlID="Answer">Security Answer:</asp:Label>
+                            </td>
+                            <td>
+                                <asp:TextBox ID="Answer" runat="server" Width="260px"></asp:TextBox>
+                                <asp:RequiredFieldValidator ID="AnswerRequired" runat="server" 
+                                    ControlToValidate="Answer" ErrorMessage="Security answer is required." 
+                                    ForeColor="Red" ToolTip="Security answer is required." 
+                                    ValidationGroup="RegisterUser">*</asp:RequiredFieldValidator>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td align="center" colspan="2">
+                                <asp:CompareValidator ID="PasswordCompare" runat="server" 
+                                    ControlToCompare="Password" ControlToValidate="ConfirmPassword" 
+                                    Display="Dynamic" 
+                                    ErrorMessage="The Password and Confirmation Password must match." 
+                                    ValidationGroup="RegisterUser"></asp:CompareValidator>
+                            </td>
+                        </tr>
+                    </table>
+                </ContentTemplate>
+            </asp:CreateUserWizardStep>
+            <asp:CompleteWizardStep runat="server">
+            </asp:CompleteWizardStep>
+        </WizardSteps>
+    </asp:CreateUserWizard>
+    </asp:Panel>
+
+            <ajaxToolkit:DropShadowExtender ID="DropShadowExtender1" runat="server"
+                BehaviorID="DropShadowBehavior1"
+                TargetControlID="Panel1"
+                Width="8"
+                Rounded="true"
+                Radius="6"
+                Opacity=".75"
+                TrackPosition="true" />
+    </td>
+    </tr>
+    </table>
+</asp:Content>
+

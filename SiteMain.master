@@ -1,0 +1,348 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="SiteMain.master.cs" Inherits="SiteMaster" MasterPageFile="" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="ajaxToolkit" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en">
+<head id="Head1" runat="server">
+        <title> </title>
+    <meta http-equiv="content-type" content="text/html;charset=utf-8" />
+    <link href="~/Styles/Site.css" rel="Stylesheet" type="text/css" id="Link1" />
+    
+    <link id="Linkicon" runat="server" rel="icon" href="~/favicon.ico" type="image/ico" />
+        
+    <link href="~/Styles/Design/Gray/css/form.css" rel="Stylesheet" type="text/css" id="Link3" />    
+
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+        
+
+    </asp:ContentPlaceHolder>
+    
+        <style type="text/css">
+            .header1
+            {
+                font-family: "Harlow Solid Italic";
+                font-size: 50px;
+                color: #FFFFFF;
+            }
+            .footer{}            
+            .footer a {color:#FF6600;text-decoration:none;font-weight:bold;}   
+              
+        </style>
+    
+</head>
+<body>
+
+    <form id="Form" runat="server" method="post" class="formmain">
+    
+
+    
+    <table  class="header">
+      <tr>
+        <td align="left" class="header1"><asp:Image ID="logo" runat="server" ImageUrl="~/Images/hotellogo.png" /></td>
+         <td class="headerq" align="right">
+          <asp:LoginView ID="HeadLoginView" runat="server" EnableViewState="false"  >
+                    <AnonymousTemplate>    
+                            <asp:Login ID="Login1" runat="server">
+                                <LayoutTemplate>
+                                    <table>
+                                    <tr>
+                                        <td>
+                                            <table>
+                                                <tr valign="top">
+					                                    <td align="left">
+                                    		                <asp:Label ID="UserNameLabel" runat="server" AssociatedControlID="UserName" 
+                                                                ForeColor="White">User Name</asp:Label>      
+				    	                                </td>                              
+                                                </tr>
+                                                <tr valign="top">
+					                                    <td align="left" >
+                                    		                <asp:TextBox ID="UserName" runat="server" TabIndex="1"></asp:TextBox>
+                                            	                <asp:RequiredFieldValidator ID="UserNameRequired" runat="server" 
+                                                	                ControlToValidate="UserName" ErrorMessage="User Name is required." 
+                                                	                ToolTip="User Name is required." ValidationGroup="ctl00$Login1" 
+                                                                    ForeColor="White">*</asp:RequiredFieldValidator>
+					                                    </td>
+                                                </tr>
+                                                <!--
+				                                <tr valign="top">
+					                                    <td align="left">
+                                    		                <asp:CheckBox ID="RememberMe" runat="server" Text="Keep me logged in" 
+                                                                TabIndex="4" ForeColor="White" />
+					                                    </td>
+                                                </tr>
+                                                -->
+                                                <tr>
+                                                    <td> No account?
+                                                        <asp:HyperLink runat="server" ID="CreateUserLink"  NavigateUrl="~/Account/Register/Register.aspx" Text="Create one!"  ForeColor="White"  Font-Bold="true"></asp:HyperLink>
+                                                    </td>
+                                                </tr>
+				                
+                                            </table> 
+                                        </td>
+                                        <td>
+                                            <table>
+                                                <tr valign="top">
+					                                    <td align="left" >
+                                     		                <asp:Label ID="PasswordLabel" runat="server" AssociatedControlID="Password" 
+                                                                TabIndex="5" ForeColor="White">Password</asp:Label>
+					                                    </td>
+                                                </tr>
+                                                <tr valign="top">
+					                                    <td align="left">
+                                    		                <asp:TextBox ID="Password" runat="server" TextMode="Password" TabIndex="2"></asp:TextBox>
+                                            	                <asp:RequiredFieldValidator ID="PasswordRequired" runat="server" 
+                                                	                ControlToValidate="Password" ErrorMessage="Password is required." 
+                                                	                ToolTip="Password is required." ValidationGroup="ctl00$Login1"  
+                                                                    ForeColor="White">*</asp:RequiredFieldValidator>
+					                                    </td>
+                                                </tr>
+				                                <tr valign="top">
+					                                    <td align="left">
+                                    		                <asp:HyperLink ID="PasswordRecoveryLink" runat="server" 
+                                                                NavigateUrl="~/Account/PasswordRecovery.aspx" ForeColor="Yellow">Forgot Your Password?</asp:HyperLink>
+					                                    </td>
+                                                </tr>
+                                            </table>                                                          
+                                        </td>
+			                            <td align="right" valign="middle" width="53px";>
+                                                            <asp:Button ID="LoginButton" runat="server" CommandName="Login" Text="Log In" 
+                                                                ValidationGroup="ctl00$Login1" TabIndex="3" />
+                                        </td>
+                                    </tr> 
+                                    <tr>
+					                        <td align="left" colspan="3" 
+                                                
+                                                style="color:#FFFFFF; font-weight: bold; font-style: italic; font-size: small;">
+                                                <asp:Literal ID="FailureText" runat="server" EnableViewState="False"></asp:Literal>
+                                            </td>
+                                    </tr>               
+                                </table>
+                                </LayoutTemplate>
+                            </asp:Login>   
+                    </AnonymousTemplate>
+                    <LoggedInTemplate><span  class="Maroon">Welcome</span>
+                            <span class="bold" >
+                        <asp:LoginName ID="HeadLoginName" runat="server" ForeColor="White" />
+                        </span><span  class="Maroon">!</span><span class="Maroon">
+                        <asp:LoginStatus ID="HeadLoginStatus" runat="server"  LogoutAction="Redirect" LogoutText="[Log Out]" LogoutPageUrl="~/" ForeColor="White" Font-Bold="true" />
+             
+                        <asp:HyperLink runat="server" ID="ChangePassword" NavigateUrl="~/Account/ChangePassword.aspx" Text="[Change Password]" ForeColor="White" Font-Bold="true"></asp:HyperLink>
+                        
+                        <br />
+                        <asp:HyperLink runat="server" ID="AdminPage"  NavigateUrl="~/Admin/" Text="[Visit Admin Home Page]"  ForeColor="White"  Font-Bold="true"></asp:HyperLink>
+                                              
+                        <asp:HyperLink runat="server" ID="DashBoardLink"  NavigateUrl="~/Dashboard/" Text="[My Dashboard]"  ForeColor="White"  Font-Bold="true"></asp:HyperLink>
+                        
+                        </span>
+                    </LoggedInTemplate>
+            </asp:LoginView> 
+       </td>
+       </tr>
+       </table>    
+      
+      <div id="header1">
+            <div class="MenuTop"></div>
+            <div class="clear hideSkiplink">
+                    <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
+                         IncludeStyleBlock="False" Orientation="Horizontal" Font-Bold="True">                        
+                        <Items>
+                            <asp:MenuItem  Text="Home" Value="Home" NavigateUrl="~/"/>
+                            <asp:MenuItem Text="Where We Are" Value="Where We Are" NavigateUrl="~/WhereWeAre/">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Our Rooms &amp; Services" Value="Our Rooms &amp; Services" NavigateUrl="~/Rooms/">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Photo Gallery" Value="Photo Gallery" NavigateUrl="~/Photogallery/">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Offers" Value="Offers" NavigateUrl="~/Offers/">
+                            </asp:MenuItem>
+                            <asp:MenuItem Text="Events" Value="Events" NavigateUrl="~/Events/">
+                            </asp:MenuItem>
+                            <asp:MenuItem  Text="Contact Us" Value="Contact Us" NavigateUrl="~/Contact-Us/"/>
+                        </Items>
+                    </asp:Menu>
+                </div>
+        </div>
+    
+
+ <div class="page">
+    <div class="main">
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" ViewStateMode="Enabled">
+                      
+
+        </asp:ContentPlaceHolder>
+    </div>
+  
+  <div><br /></div>
+
+    <table class="FacilitiesTable" >        
+            <tr>
+                <td class="FacilitiesTestXLarge" colspan="8">Services and Facilities</td>
+            </tr>
+            <tr>
+                <td >
+                    <div align="center" class="Packing"> </div>
+                </td>       
+               
+                <td class="FacilitiesTestLarge">Parking</td>
+                <td class="FacilitiesTestMedium">Parking, Valet Parking</td>
+                <td >
+                    <div align="center" class="Outdoors"> </div>
+                </td>
+                <td class="FacilitiesTestLarge">Outdoors</td>
+                <td class="FacilitiesTestMedium">Swimming Pool (in progress)</td>          
+            </tr>        
+            <tr>
+                <td >
+                    <div align="center" class="General"> </div>
+                </td>       
+               
+                <td class="FacilitiesTestLarge">General</td>
+                <td class="FacilitiesTestMedium">Air Conditioning, 24h Electricity</td>
+                <td >
+                    <div align="center" class="Security"> </div>
+                </td>
+                <td class="FacilitiesTestLarge">Security</td>
+                <td class="FacilitiesTestMedium">Security Guard, Guarded Complex</td>          
+            </tr>     
+            <tr>
+                <td >
+                    <div align="center" class="Internet"> </div>
+                </td>       
+               
+                <td class="FacilitiesTestLarge">Internet</td>
+                <td class="FacilitiesTestMedium">Wireless Internet (Wi-Fi)</td>
+                <td >
+                    <div align="center" class="Activities"> </div>
+                </td>
+                <td class="FacilitiesTestLarge">Activities</td>
+                <td class="FacilitiesTestMedium">Gym</td>          
+            </tr>     
+            <tr>
+                <td >
+                    <div align="center" class="Services"> </div>
+                </td>       
+               
+                <td class="FacilitiesTestLarge">Services</td>
+                <td class="FacilitiesTestMedium">ATM Services, Laundry / Dry Cleaning, House Keeping, Safety Deposit Boxes, Room Service, Storage room etc.</td>
+                <td >
+                    <div align="center" class="FoodDrink"> </div>
+                </td>
+                <td class="FacilitiesTestLarge">Food & Drink</td>
+                <td class="FacilitiesTestMedium">Bar / Lounge, Pool Bar, Breakfast, Lunch, Dinner, Restaurant</td>        
+            </tr>     
+                                 
+
+            <tr>
+                
+                <td class="FacilitiesTestXLarge" colspan="8"><br />Hotel Policies</td>
+            </tr>
+            <tr>                 
+                <td class="FacilitiesTestLarge" colspan="2">Check-In </td>
+                <td class="FacilitiesTestMedium">From 10:00 hours, ID Required</td>
+                
+                <td class="FacilitiesTestLarge" colspan="2">Mode of Payment</td>
+                <td class="FacilitiesTestMedium">Cash, VISA, Verve, MasterCard or Remita UnionPay</td>          
+            </tr>   
+            <tr>                 
+                <td class="FacilitiesTestLarge" colspan="2">Check-Out </td>
+                <td class="FacilitiesTestMedium">From 12:00 hours</td>
+                
+                <td class="FacilitiesTestLarge" colspan="2">Pets</td>
+                <td class="FacilitiesTestMedium">Not allowed</td>          
+            </tr>         
+            <tr>                 
+                <td class="FacilitiesTestLarge" colspan="2">Children </td>
+                <td class="FacilitiesTestMedium">Free Stay with the existing bed, <br />Max Age: 12</td>
+                
+                <td class="FacilitiesTestLarge" colspan="2"></td>
+                <td class="FacilitiesTestMedium"></td>   
+            </tr> 
+            <tr>                 
+                <td class="FacilitiesTestLarge" colspan="2" height="20px"> </td>
+                <td class="FacilitiesTestMedium"></td>
+                
+                <td class="FacilitiesTestLarge" colspan="2"></td>
+                <td class="FacilitiesTestMedium"></td>   
+            </tr> 
+        </table>
+ </div>
+
+
+ <div id="footer2" class="footer">
+      <div >        
+        <table >        
+            <tr style="vertical-align: top;">
+                <td width="275px">
+                        <tt style="color: #FFFFFF; font-family: 'Times New Roman', Times, serif; font-size: medium; font-weight: bold;"> HEAD QUARTERS </tt>
+                        <br />
+                        Nkisa Hotels, <br />
+                        Opp. Mgbede Main Market, <br />
+                        Mgbede-Ebocha Road, ONELGA, <br />
+                        Rivers State, Nigeria. <br />
+                        Email:  <a href="mailto:support@nkisahotels.com">support@nkisahotels.com</a><br />
+                        Tel: +2347082895327<br />
+                        <a href="#" onclick="window.open('https://www.facebook.com/nkisahotels/','Window1',
+			                        'menubar=no,width=430,height=500,toolbar=no,resizeable=yes,scrollbars=yes');">Facebook</a>
+                    
+                    
+                </td>
+               <td style="background-color: #FFFFFF;" width="3px"></td>
+                <td width="275px">
+                    
+                        <tt style="color: #FFFFFF; font-family: 'Times New Roman', Times, serif; font-size: medium; font-weight: bold;"> BRANCH OFFICE </tt>
+                        <br />
+                        Nkisa Hotels, <br />
+                        Opp. Shell Location (EPC) Ukwugba, <br />
+                        Ohaji/Egbema LGA, <br />
+                        Imo State, Nigeria. <br />
+                        Email:  <a href="mailto:support@nkisahotels.com">support@nkisahotels.com</a><br />
+                        Tel: +2348024532141<br />
+                        <a href="#" onclick="window.open('https://www.facebook.com/nkisahotels/','Window1',
+			                        'menubar=no,width=430,height=500,toolbar=no,resizeable=yes,scrollbars=yes');">Facebook</a>                    
+                    
+                </td>
+               <td style="background-color: #FFFFFF;" width="3px"></td>
+                <td width="275px">
+                    <div><asp:HyperLink ID="HyperLink13" NavigateUrl="~/Offers/" runat="server" ForeColor="White" Font-Bold="True" Font-Size="Medium">OFFERS</asp:HyperLink></div>
+                    <br />
+                    With special rates and breakfasts for two - from healthy to decadent - our Bed & Breakfast 
+                    packages are the perfect way for you to relax and recharge. Book your weekend escape today.
+                    
+                </td>
+                <td style="background-color: #FFFFFF;" width="3px"></td>
+               <td width="275px">
+                     <div><asp:HyperLink ID="HyperLink12" NavigateUrl="~/Events/" 
+                             runat="server" ForeColor="White" Font-Bold="True" Font-Size="Medium">METTINGS AND EVENTS</asp:HyperLink></div>
+                    <br />
+                        Our professional atmosphere, helpful technology and planning tools can ensure your meeting is a success.
+                    
+                </td>       
+             </tr>        
+        </table>
+   </div>
+   </div>
+     
+     
+     
+     <!-- end #footer-top -->
+
+    <div id="footer-copyright2" class="footer"
+        style="background-color: #181818; background-image: url('~/Images/bg-ad.png'); background-repeat: repeat" >
+		<div id="container" style="color: #6b6b6b; font-size: 11px; text-shadow: -1px -1px 1px #000000; float: right; height: 29px;  margin-right: 20px; ">
+            <!--
+            <p id="P2" style="color: #FFFFFF" >Designed by <a href="#" onclick="window.open('http://www.jamogbosoft.com/','Window1',
+			    'menubar=no,width=430,height=500,toolbar=no,resizeable=yes,scrollbars=yes');" style="color: #FFFFFF">Jamogbosoft</a> | Powered by
+                <a href="#" onclick="window.open('http://www.nkisahotels.com/','Window1',
+			    'menubar=no,width=430,height=500,toolbar=no,resizeable=yes,scrollbars=yes');" style="color: #FFFFFF">Nkisa Hotels</a>
+            </p>
+            --> 
+            <p id="P2" style="color: #FFFFFF" >Designed by <a style="color: #FFFFFF">Jamogbosoft </a> | Powered by <a style="color: #FFFFFF">Nkisa Hotels</a></p>
+        </div> <!-- end .container -->	
+	    <br />
+        <br />
+        <br />
+	</div> <!-- end #footer-copyright -->
+    </form>
+</body>
+</html>

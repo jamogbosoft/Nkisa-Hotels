@@ -1,0 +1,67 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="SiteDashboard.master.cs" Inherits="SiteDashboard" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+    <!-- <link href="Styles/Design/Gray/css/better-modal.css" rel="Stylesheet" type="text/css" id="Link1" /> -->
+    <link href="Styles/Design/Gray/css/form.css" rel="Stylesheet" type="text/css" id="Link2" />
+    <link href="Styles/Design/Gray/css/grid.css" rel="Stylesheet" type="text/css" id="Link3" />
+    <!-- <link href="Styles/Design/Gray/css/login.css" rel="Stylesheet" type="text/css" id="Link4" /> -->
+    <!-- <link href="Styles/Design/Gray/css/modal.css" rel="Stylesheet" type="text/css" id="Link5" /> -->
+    <link href="Styles/Design/Gray/css/subscription-management.css" rel="Stylesheet" type="text/css" id="Link6" />    
+    <link href="Styles/Design/Gray/css/template.css" rel="Stylesheet" type="text/css" id="Link7" /> 
+
+    <asp:ContentPlaceHolder ID="DashboardHeadContent" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</asp:Content>
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+     <div class="main-page">
+            <div class="content flush-padding">              
+                    <div class="columns with-sidebar">
+                        <div class="first cell column-sidebar" role="navigation">
+                            
+                            <div id="subscription-menu" class="sidebar-menu" data-reload="subscription">
+                                    <h3>Dashboard</h3>
+                                    <ul class="subscriptions-list">
+                                        <li>
+                                            <a href="../">
+                                                <span class="platform-icon-32 university"></span>
+                                                Nkisa Hotels
+                                            </a>
+                                        </li>
+                                    </ul>
+                                <h3>My Account</h3>
+                                    <ul>
+                                        <li >
+                                            <a href="../Dashboard/">Personal Details</a>
+                                        </li>
+                                        <li>
+                                            <a href="/account/my/subscription/downloads">Booking History</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/account/my/subscription/computers">Payment Information</a>
+                                        </li>
+
+                                        <li>
+                                            <a href="../Account/ChangePassword.aspx">Change Password</a>
+                                        </li>                                        
+                                    
+                                    </ul> 
+                                <div class="alert top-gap">
+                                    Do you want to make a new booking? <a class="get-support" href="../">Click Here</a>
+                                </div>                               
+                            </div>
+                            
+                        </div>
+                        <div class="cell column-body vertical-padding" role="main">
+                            
+                            <asp:ContentPlaceHolder ID="DashboardMainContent" runat="server">
+        
+                            </asp:ContentPlaceHolder>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+</asp:Content>
+

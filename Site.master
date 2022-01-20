@@ -1,0 +1,25 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/SiteMain.master" AutoEventWireup="true" CodeFile="Site.master.cs" Inherits="Site" %>
+
+
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+    <asp:ContentPlaceHolder ID="HeadContent" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+       
+    <ajaxToolkit:ToolkitScriptManager runat="Server" EnablePartialRendering="true" ID="ScriptManager1">
+    </ajaxToolkit:ToolkitScriptManager>   
+          
+
+
+    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+        
+    </asp:ContentPlaceHolder>
+</asp:Content>
+
+
+
+
+        

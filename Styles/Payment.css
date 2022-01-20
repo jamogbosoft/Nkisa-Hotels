@@ -1,0 +1,413 @@
+
+body
+{
+    background-position: center top;
+    font-size: .80em;
+    font-family: "Helvetica Neue" , "Lucida Grande" , "Segoe UI" , Arial, Helvetica, Verdana, sans-serif;
+    margin: 0px;
+    padding: 0px;
+    /*background: #F6F6F6;*/
+}
+
+
+.page
+{
+    /*border-color: #fff;*/
+    border-color: #C0C0C0;
+    background-position: center top;
+    border-style: solid none none none;
+    border-width: 1px;
+    width: 960px;
+    background-color: #fff;
+    margin: 0px auto 0px auto;
+    background-repeat: no-repeat;
+}
+
+.main
+{
+    padding: 0px 12px;
+    margin: 12px 8px 8px 8px;
+    min-height: 420px;
+}
+
+
+
+
+/*              Payment Preview Makup
+----------------------------------------------------------*/
+.sidebar
+{
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+.sidebarheader
+{
+    height: 24px;
+    padding: 10px 0 0 0px;
+    background: url('../Images/bar.png') repeat-x center top;
+    color: #FFF;
+    font-family: Arial, Sans-Serif;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+
+.sidebarcontent
+{
+    border: 1px solid #0F2543;
+    padding: 0px 20px 20px 20px; /*line-height: 1.5em;*/
+    /*font-weight: bold;*/
+    background-image: url('../Images/media_bg2.jpg');
+    background-repeat: repeat;
+}
+
+
+.sidebarcontent a
+{
+	/*padding: 2px 5px;*/
+	color: #5377A9;
+	text-decoration: none;
+}
+
+.sidebarcontent a:hover
+{
+	background-color: #0F2543;
+	color: #FFF;
+}
+
+.sidebarcontent a:visited
+{
+	font-weight: normal;
+}
+
+.sidebarcontentb
+{
+    border: 1px solid #0F2543;
+   padding: 2px 2px 2px 2px; /*line-height: 1.5em;*/
+    font-weight: bold;
+    background-image: url('../Images/media_bg2.jpg');
+    background-repeat: repeat;
+}
+
+
+.sidebarcontentb a
+{
+	/*padding: 2px 5px;*/
+	color: #5377A9;
+	text-decoration: none;
+}
+
+.sidebarcontentb a:hover
+{
+	background-color: #0F2543;
+	color: #FFF;
+}
+
+.sidebarcontentb a:visited
+{
+	font-weight: normal;
+}
+
+
+/* ----------------------------------------------------------*/
+
+
+    .LargeText
+    {
+        /*font-family: Bernard MT Condensed;*/
+        font-family: 'Times New Roman' , Times, serif;
+        font-size: large;
+        color: #003366;
+        text-align: left;
+        font-weight: bold;        
+    }            
+    
+    .MediumText
+    {   
+        font-size: medium;
+        text-align: left;       
+        font-weight: lighter; 
+        color: Gray;
+    }
+            
+    .SmallText
+    {                   
+        font-size: small;
+        text-align: left;       
+        font-weight: lighter; 
+        color: Gray;
+    }
+            
+    .LargeTextDetails
+    {
+        /*font-family: Bernard MT Condensed;*/
+        font-family: 'Times New Roman' , Times, serif;
+        font-size: large;
+        color: Gray;
+        text-align: left;
+        font-weight: bold;        
+    }         
+            
+    .AmountText
+    {
+        /*font-family: Bernard MT Condensed;*/
+        font-family: 'Times New Roman' , Times, serif;
+        font-size: large;
+        color: #003366;
+        text-align: right;
+        font-weight: bold;        
+    }
+            
+    .TotalAmountCaption
+    {
+        font-family: 'Times New Roman' , Times, serif;
+        font-size: large;
+        color: Green;
+        text-align:left;
+        font-weight: bold;
+    }     
+        
+    .TotalAmountText
+    {
+        font-family: 'Times New Roman' , Times, serif;
+        font-size: large;
+        color: Green;
+        text-align: right;
+        font-weight: bold;
+    }          
+            
+    .TotalAmount
+    {
+        font-family: 'Times New Roman' , Times, serif;
+        font-size: xx-large;
+        color: Green;
+        text-align: center;
+        font-weight: bold;
+    }
+        
+    .YouWillPay
+    {
+        font-family: 'Times New Roman' , Times, serif;
+        font-size: xx-large;
+        color: Green;
+        text-align: left;
+        font-weight: bold;
+    }
+        
+    .PaymentDetails
+    {
+        font-family: 'Times New Roman' , Times, serif;
+        font-size: medium;
+        color: Maroon;
+        text-align: center;
+        font-weight: bold;
+    }
+        
+    .BookingNumber
+    {
+        font-family: 'Times New Roman' , Times, serif;
+        font-size: large;
+        color: Green;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .RRR
+    {
+        font-family: 'Times New Roman' , Times, serif;
+        font-size: large;
+        color: #FF6600;
+        text-align: left;
+        font-weight: bold;
+    }
+    
+    .RRR2
+    {
+        font-family: 'Times New Roman' , Times, serif;
+        font-size: large;
+        color: #FF6600;
+        text-align: center;
+        font-weight: bold;
+    }
+    /* -------------------------Message Box---------------------------------*/
+ 
+ .errordisplay
+{	
+	font-weight: normal;
+	color: Navy !important;
+	background-color:#CCFFFF !important;
+	border: solid 4px  Aqua !important;	
+	margin: 7px 0;
+	padding: 8px;
+	
+}
+.errordisplay td
+{
+	padding: 5px;
+	text-align: left;    
+	vertical-align: top;
+}
+.errordisplay td:first-child
+{
+	width: 16px;
+	padding-top: 7px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+.errordisplay hr
+{
+	background: Maroon;
+}
+.errorhighlight
+{
+	background-color: #FCEBF2 !important;
+	border-color: Red !important;
+	border-width: 2px !important;  
+}
+
+   /* ----------------------------------------------------------*/
+
+.nextbuttonsmall
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    font-weight: bold;
+    width: 105px;
+    height: 37px;
+    color : White ;
+    background-image: url('../Images/Buttons/next.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size:  small;
+    font-family: Times New Roman;
+}
+
+.nextbuttonlarge
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    font-weight: bold;
+    width: 105px;
+    height: 37px;
+    color : White ;
+    background-image: url('../Images/Buttons/next.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size: large;
+    font-family: Times New Roman;
+}
+
+.okbuttonsmall
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    font-weight: bold;
+    width: 105px;
+    height: 37px;
+    color : White ;
+    background-image: url('../Images/Buttons/ok.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size:  small;
+    font-family: Times New Roman;
+}
+
+.okbuttonlarge
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    font-weight: bold;
+    width: 105px;
+    height: 37px;
+    color : White ;
+    background-image: url('../Images/Buttons/ok.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size: large;
+    font-family: Times New Roman;
+}
+.ok1buttonsmall
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    font-weight: bold;
+    width: 150px;
+    height: 52px;
+    color : White ;
+    background-image: url('../Images/Buttons/ok1.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size:  small;
+    font-family: Times New Roman;
+}
+
+.ok2buttonsmall
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    font-weight: bold;
+    width: 150px;
+    height: 37px;
+    color : White ;
+    background-image: url('../Images/Buttons/ok2.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size:  small;
+    font-family: Times New Roman;
+}
+.ok2buttonmedium
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    font-weight: bold;
+    width: 150px;
+    height: 37px;
+    color : White ;
+    background-image: url('../Images/Buttons/ok2.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size: medium;
+    font-family: Times New Roman;
+}
+
+.ok3buttonsmall
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    font-weight: bold;
+    width: 195px;
+    height: 37px;
+    color : White ;
+    background-image: url('../Images/Buttons/ok3.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size: small;
+    font-family: Times New Roman;
+}
+
+.ok4buttonmedium
+{
+    border-style: none;
+    border-color: inherit;
+    border-width: 0px;
+    font-weight: bold;
+    width: 220px;
+    height: 37px;
+    color : White ;
+    background-image: url('../Images/Buttons/ok4.png');
+    background-repeat: no-repeat;
+    cursor: pointer;
+    font-size: medium;
+    font-family: Times New Roman;
+}

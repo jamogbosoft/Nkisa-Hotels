@@ -1,0 +1,47 @@
+﻿<%@ Master Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true" CodeFile="SiteAdmin.master.cs" Inherits="SiteAdmin" %>
+    
+<asp:Content ID="Content1" ContentPlaceHolderID="HeadContent" Runat="Server">
+    <asp:ContentPlaceHolder ID="AdminHeadContent" runat="server">
+        
+   </asp:ContentPlaceHolder>
+
+    <style type="text/css">
+       
+
+    </style>
+</asp:Content>
+
+<asp:Content ID="Content2" ContentPlaceHolderID="MainContent" Runat="Server">
+        
+        <asp:Menu ID="NavigationMenu" runat="server" CssClass="menu" 
+                IncludeStyleBlock="False" Orientation="Horizontal" Font-Bold="True" >
+            <DynamicItemTemplate>
+                <%# Eval("Text") %>
+            </DynamicItemTemplate>
+            <Items>
+                <asp:MenuItem Text="Bookings" Value="Bookings" 
+                    NavigateUrl="~/Rooms/RoomAllocations.aspx">
+                </asp:MenuItem>
+                <asp:MenuItem Text="Branches" Value="Branches" 
+                    NavigateUrl="~/Admin/Features/Branches.aspx">
+                </asp:MenuItem>
+                <asp:MenuItem Text="Room Types" Value="Room Types" 
+                    NavigateUrl="~/Admin/Features/RoomTypes.aspx">
+                </asp:MenuItem>
+                <asp:MenuItem Text="Room Features" Value="Room Features" 
+                    NavigateUrl="~/Admin/Features/RoomFeatures.aspx">
+                </asp:MenuItem>
+                <asp:MenuItem Text="Rooms" Value="Rooms" 
+                    NavigateUrl="~/Admin/Features/Rooms.aspx"></asp:MenuItem>
+                <asp:MenuItem Text="Messages" Value="Messages" 
+                    NavigateUrl="~/Admin/Messages.aspx">
+                </asp:MenuItem>
+            </Items>
+        </asp:Menu>     
+        
+        <asp:ContentPlaceHolder ID="AdminMainContent" runat="server">
+        
+        </asp:ContentPlaceHolder>
+
+</asp:Content>
+
